@@ -1,4 +1,8 @@
+import React from 'react';
 import './App.css';
+import Surface from './DNDSurface';
+import { DragDropContext } from "react-beautiful-dnd";
+import Sidebar from './Sidebar';
 
 function App() {
   const controls =[
@@ -8,23 +12,21 @@ function App() {
   ]
 
   return (
-    <div className="App">
-      <div className='main'>
-        MAIN
-      </div>
-      
-      <div className='sidebar'>
-        <div className='text'>BLOCKS</div>
-        <div className='blocks'>
-          {(controls || []).map((item)=>(
-            <div className='item_container'>           
-              <div class="drop"/>
-              {item?.name}
-            </div>
-          ))}
+    <DragDropContext>
+      <div className="App">
+        <div className='main'>
+  
+        </div>
+        
+        <div className='sidebar'>
+          <div className='text'>BLOCKS</div>
+          <div className='blocks'>
+             <Sidebar controls={controls}/>
+          </div>
         </div>
       </div>
-    </div>
+    </DragDropContext>
+  
   );
 }
 
