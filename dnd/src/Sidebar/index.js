@@ -3,8 +3,9 @@ import '../App.css'
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
 const Sidebar = ({controls}) => {
-   return(
-      <Droppable droppableId="surface" type="parentDropArea">
+  
+  return(
+      <Droppable droppableId="dnd" type="parentDropArea" >
         {(provided)=>{
             return (
             <div ref={provided.innerRef} {...provided.droppableProps}>
@@ -22,6 +23,7 @@ const Sidebar = ({controls}) => {
                   }
                 }</Draggable>
               })}
+              {provided.placeholder}
             </div>)
         }}
     </Droppable>
